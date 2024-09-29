@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load static %}
+	
+{% block content %}
+    <h1 class="display-4 text-success">Welcome, {{ key.username }}</h1>
+    <h2 class="display-4 text-success">Your first name is {{ key.first_name }}</h2>
+    <h2 class="display-4 text-success">Your last name is {{ key.last_name }}</h2>
+    <h2 class="display-4 text-success">Your account email is {{ key.email }}</h2>
+{% endblock %}

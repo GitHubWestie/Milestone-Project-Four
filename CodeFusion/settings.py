@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "allauth",
     "allauth.account",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,10 @@ ROOT_URLCONF = "CodeFusion.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -89,7 +93,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory' # Must verify through email
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True # Must enter email twice to sign up
 ACCOUNT_USERNAME_MIN_LENGTH = 4 # Min username length is 4 characters
 LOGIN_URL = '/accounts/login/' # Specifies login url
-LOGIN_REDIRECT_URL = '/' # URL to redirect to after logging in
+LOGIN_REDIRECT_URL = '/dashboard' # URL to redirect to after logging in
+LOGOUT_REDIRECT_URL = '/accounts/login/' # URL to redirect to after logging out
 
 WSGI_APPLICATION = "CodeFusion.wsgi.application"
 
