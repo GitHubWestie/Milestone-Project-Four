@@ -11,11 +11,13 @@ def get_courses(request):
 
 
 def get_lesson(request, uuid):
-    
-    lesson = get_object_or_404(Lesson, uuid=uuid)
+    """  """
 
-    next_lesson = Lesson.objects.filter(order__gt=lesson.order).order_by('order').first()
-    previous_lesson = Lesson.objects.filter(order__lt=lesson.order).order_by('-order').first()
+    lesson = get_object_or_404(Lesson, uuid=uuid)
+    next_lesson = Lesson.objects.filter(
+        course_id=lesson.course_id, order__gt=lesson.order).order_by('order').first()
+    previous_lesson = Lesson.objects.filter(
+        course_id=lesson.course_id, order__lt=lesson.order).order_by('-order').first()
 
     context = {
         'lesson':lesson,
