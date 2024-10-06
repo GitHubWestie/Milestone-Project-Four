@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is {{ lesson.title }}</h1>
+    <h1>{{ lesson.title }}</h1>
+    <iframe src="{{ lesson.video_url }}" frameborder="0"></iframe>
+
+    <div class="navigation">
+        {% if previous_lesson %}
+            <a href="{% url 'get_lesson' previous_lesson.uuid %}">Previous Lesson</a>
+        {% endif %}
+        
+        {% if next_lesson %}
+            <a href="{% url 'get_lesson' next_lesson.uuid %}">Next Lesson</a>
+        {% endif %}
+    </div>
+
 {% endblock %}
