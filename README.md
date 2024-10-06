@@ -61,6 +61,10 @@
 
 [Django Documentation](https://www.djangoproject.com/)
 
-[Django Documentation](https://docs.allauth.org/en/latest/)
+[Django allAuth Documentation](https://docs.allauth.org/en/latest/)
 
 [Bootstrap Documentation](https://getbootstrap.com/)
+
+[Django course image courtesy of Roberto Huertas](https://icon-icons.com/users/QYVbFw10tinSxMN47fONm/icon-sets/)
+
+[Image resizing courtesy of TinyPNG](https://tinypng.com/)

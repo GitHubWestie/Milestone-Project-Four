@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for course in courses %}
+        <ul>    
+            <h1>{{ course.title }}</h1>
+            {% for lesson in course.lessons.all %}
+                <li>
+                    <a href="{% url 'get_lesson' lesson.uuid %}">{{ lesson.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
