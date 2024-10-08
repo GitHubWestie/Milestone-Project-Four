@@ -73,6 +73,8 @@
 
 [Image resizing courtesy of TinyPNG](https://tinypng.com/)
 
-[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) 
+
+[StackOverflow](https://stackoverflow.com/questions/39009638/how-to-edit-django-allauth-default-templates)
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)

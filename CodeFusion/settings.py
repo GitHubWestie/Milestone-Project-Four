@@ -91,7 +91,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email' # Can use email OR username
 ACCOUNT_EMAIL_REQUIRED = True # Email required to register
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory' # Must verify through email
+ACCOUNT_EMAIL_VERIFICATION = 'none' # Must verify through email
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False # Must enter email twice to sign up
 ACCOUNT_USERNAME_MIN_LENGTH = 4 # Min username length is 4 characters
 LOGIN_URL = '/accounts/login/' # Specifies login url
