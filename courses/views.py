@@ -8,7 +8,6 @@ def get_courses(request):
     """ Gets all courses for the courses template """
 
     courses = Course.objects.all()
-
     return render(request, 'courses/courses.html', {'courses':courses})
 
 

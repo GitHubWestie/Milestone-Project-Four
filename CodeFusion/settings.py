@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "dashboard",
     "courses",
     "home",
+    "basket",
 ]
 
 MIDDLEWARE = [

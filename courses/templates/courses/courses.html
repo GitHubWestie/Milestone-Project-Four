@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for course in courses %}
-        <ul>    
-            <h1>{{ course.title }}</h1>
-            <p>{{ course.description }}</p>
-            {% for lesson in course.lessons.all %}
-                {% if lesson.order == 0 %}
-                <li>
-                    <a href="{% url 'get_lesson' lesson.uuid %}">{{ lesson.title }}</a>
-                </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    {% endfor %}
+
+        {% for course in courses %}
+        <form action="{% url 'add_to_basket' course.id %}" method="POST">
+            {% csrf_token %}
+            <ul>    
+                <h1>{{ course.title }}</h1>
+                <p>{{ course.description }}</p>
+                {% for lesson in course.lessons.all %}
+                    {% if lesson.order == 0 %}
+                    <li>
+                        <a href="{% url 'get_lesson' lesson.uuid %}">{{ lesson.title }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <button type="submit">Add to Basket</button>
+        </form>
+        {% endfor %}
+
 {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Basket</h1>
+
+    <h2>Your basket</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in basket %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>${{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.total_price }}</td>
+                <td>
+                    <form action="{% url 'remove_from_basket' item.course.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Total: ${{ total }}</p>
+
+    <div>
+        <button class="btn btn-primary>Checkout</button>
+    </div>
+
+{% endblock %}
