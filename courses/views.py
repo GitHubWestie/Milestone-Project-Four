@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from . models import Course, Lesson
 
+@login_required
 # Create your views here.
 def get_courses(request):
     """ Gets all courses for the courses template """
@@ -10,6 +12,7 @@ def get_courses(request):
     return render(request, 'courses/courses.html', {'courses':courses})
 
 
+@login_required
 def get_lesson(request, uuid):
     """  """
 
