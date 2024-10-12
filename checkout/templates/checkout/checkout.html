@@ -13,4 +13,17 @@
         <button type="submit" id="checkout-button">Checkout</button>
     </form>
 </section>
+
+<h2>Your Basket</h2>
+<ul>
+    {% for item in basket %}
+        <li>{{ item.course.id }}</li>
+        <li>{{ item.title }}</li>
+        <li>{{ item.quantity }}</li>
+        <li>{{ item.price }}</li>
+    {% endfor %}
+</ul>
+
+<p>Total: {{ basket.basket_total }}</p>
+
 {% endblock %}

@@ -7,20 +7,21 @@
     <table>
         <thead>
             <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Action</th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             {% for item in basket %}
             <tr>
-                <td>{{ item.product.name }}</td>
-                <td>${{ item.price }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>${{ item.total_price }}</td>
+                <td scope="col">{{ item.title }}</td>
+                <td scope="col">{{ item.description }}</td>
+                <td scope="col">£{{ item.price }}</td>
+                <td scope="col">{{ item.quantity }}</td>
+                <td scope="col">£{{ item.total_price }}</td>
                 <td>
                     <form action="{% url 'remove_from_basket' item.course.id %}" method="POST">
                         {% csrf_token %}
@@ -31,12 +32,11 @@
             {% endfor %}
         </tbody>
     </table>
-
     <p>Total: ${{ total }}</p>
-
     <form action="{% url 'checkout' %}" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-primary">Checkout</button>
-    </form>
+         {% csrf_token %}
+         <button class="btn btn-primary">Checkout</button>
+     </form> 
+    
 
 {% endblock %}

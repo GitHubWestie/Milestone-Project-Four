@@ -14,6 +14,9 @@ def view_basket(request):
         'total' : total,
     }
 
+    for item in basket:
+        print(item)
+
     return render(request, 'basket/basket.html', context)
 
 
@@ -21,8 +24,6 @@ def add_to_basket(request, course_id):
     basket = Basket(request)
     course = get_object_or_404(Course, id=course_id)
     basket.add(course=course)
-    # Debug
-    print(request.session.get('basket', {}))
 
     return redirect(reverse('view_basket'))
 
