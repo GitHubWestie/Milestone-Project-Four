@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "home",
     "basket",
     "users",
+    "checkout",
 ]
 
 MIDDLEWARE = [
@@ -160,3 +161,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Stripe 
+STRIPE_SECRET_KEY = "STRIPE_SECRET_KEY"
+STRIPE_PUBLISHABLE_KEY = "STRIPE_PUBLISHABLE_KEY"

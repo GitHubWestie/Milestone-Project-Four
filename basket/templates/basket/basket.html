@@ -22,7 +22,7 @@
                 <td>{{ item.quantity }}</td>
                 <td>${{ item.total_price }}</td>
                 <td>
-                    <form action="{% url 'remove_from_basket' item.course.id %}" method="post">
+                    <form action="{% url 'remove_from_basket' item.course.id %}" method="POST">
                         {% csrf_token %}
                         <button type="submit">Remove</button>
                     </form>
@@ -34,8 +34,9 @@
 
     <p>Total: ${{ total }}</p>
 
-    <div>
-        <button class="btn btn-primary>Checkout</button>
-    </div>
+    <form action="{% url 'checkout' %}" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-primary">Checkout</button>
+    </form>
 
 {% endblock %}
