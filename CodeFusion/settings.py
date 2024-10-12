@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "courses",
     "home",
     "basket",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,8 @@ LOGIN_URL = '/accounts/login/' # Specifies login url
 LOGIN_REDIRECT_URL = '/dashboard' # URL to redirect to after logging in
 LOGOUT_REDIRECT_URL = '/accounts/login/' # URL to redirect to after logging out
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
 WSGI_APPLICATION = "CodeFusion.wsgi.application"
 
 
@@ -147,7 +150,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+	
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
