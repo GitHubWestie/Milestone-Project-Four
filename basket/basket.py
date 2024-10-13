@@ -3,21 +3,18 @@ from courses.models import Course
 
 
 class Basket:
-    """ Create empty basket """
-    def __init__(self, request):
-        # Get instance of request session
-        self.session = request.session
+    """ Basket class for handling various functions """
 
-        # Get value of basket
+    # Initialise basket or create empty one if not in session 
+    def __init__(self, request):
+        self.session = request.session
         basket = self.session.get('basket')
 
-        # Check basket
         if not basket:
-            # If basket has no value create empty basket
             basket = self.session['basket'] = {}
         self.basket = basket
 
-
+    # Add item to basket
     def add(self, course):
         course_id = str(course.id)
 
@@ -31,7 +28,7 @@ class Basket:
                 }
         self.save()
 
-
+    # Remove item from basket
     def remove(self, course):
         course_id = str(course.id)
 
@@ -39,7 +36,7 @@ class Basket:
             del self.basket[course_id]
             self.save()
 
-
+    # 
     def __iter__(self):
         course_ids = self.basket.keys()
         courses = Course.objects.filter(id__in=course_ids)
@@ -52,7 +49,7 @@ class Basket:
             item['total_price'] = item['price']
             yield item
 
-
+    # Get total price of basket items
     def basket_total(self):
         total = 0  
 
@@ -60,16 +57,15 @@ class Basket:
             total += Decimal(item['price'])  
         return total 
     
-
+    # Save basket
     def save(self):
         self.session.modified = True
 
-
+    # Get number of items in basket
     def __len__(self):
         return len(self.basket)
     
-
+    # Clear the basket contents
     def clear(self):
         del self.session['basket']
         self.save()
-

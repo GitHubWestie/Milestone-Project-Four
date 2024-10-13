@@ -14,9 +14,6 @@ def view_basket(request):
         'total' : total,
     }
 
-    for item in basket:
-        print(item)
-
     return render(request, 'basket/basket.html', context)
 
 
