@@ -2,6 +2,10 @@ import stripe
 from basket.basket import Basket
 from django.conf import settings
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from courses.models import Course, Enrollment
+from users.models import CustomUser
+from django.utils import timezone
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -28,8 +32,8 @@ def checkout(request):
             payment_method_types=['card'],
             line_items=line_items,
             mode='payment',
-            success_url="https://animated-computing-machine-xjwqq45wqpv2vpr7-8000.app.github.dev/checkout/success/", 
-            cancel_url="https://animated-computing-machine-xjwqq45wqpv2vpr7-8000.app.github.dev/checkout/cancel/", 
+            success_url="https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net/checkout/success?session_id={CHECKOUT_SESSION_ID}", 
+            cancel_url="https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net/checkout/cancel/", 
         )
 
         return redirect(checkout_session.url, code=303)
@@ -42,11 +46,39 @@ def checkout(request):
 
 
 def success(request):
+    """
+    Check for payment confirmation in Stripe session and if it exists enrol 
+    user in purchased course.
+    If not redirect back to basket to complete checkout.
+    """
+
     basket = Basket(request)
+    user = request.user
 
-    basket.clear()
+    # Get session_id from success URL
+    session_id = request.GET.get('session_id')
 
-    return render(request, 'checkout/success.html')
+    if not session_id:
+        # If no session_id in URL send user back to basket
+        return redirect(reverse('view_basket'))
+
+    # Get stripe session with session_id
+    checkout_session = stripe.checkout.Session.retrieve(session_id)
+
+    if checkout_session.payment_status == 'paid':
+        # Enroll user in purchased course/s
+        for item in basket:
+            Enrollment.objects.create(
+                user = user,
+                course = item['course'],
+                enrolled_at = timezone.now(),
+            )
+
+        basket.clear()
+
+        return render(request, 'checkout/success.html')
+    else:
+        return redirect('basket.html')
 
 
 def cancel(request):

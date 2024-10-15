@@ -27,7 +27,8 @@ SECRET_KEY = "SECRET_KEY"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -141,7 +142,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/London"
 
 USE_I18N = True
 
