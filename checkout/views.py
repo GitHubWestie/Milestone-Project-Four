@@ -81,5 +81,6 @@ def success(request):
         return redirect('basket.html')
 
 
-def cancel(request):
+def cancel(request): 
+
     return render(request, 'checkout/cancel.html')

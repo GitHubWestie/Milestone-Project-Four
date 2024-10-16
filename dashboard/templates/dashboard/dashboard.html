@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 	
 {% block content %}
-    <h1 class="display-4 text-success">Welcome, {{ key.username }}</h1>
-    <h2 class="display-4 text-success">Your first name is {{ key.first_name }}</h2>
-    <h2 class="display-4 text-success">Your last name is {{ key.last_name }}</h2>
-    <h2 class="display-4 text-success">Your account email is {{ key.email }}</h2>
+    <div>
+        <h1>Welcome, {{ user.username }}</h1>
+    </div>
+    <div>
+        <ul>
+            <li>First name: {{ user.first_name }}</li>
+            <li>Last name: {{ user.last_name }}</li>
+            <li>Bio: {{ complete_user.profile.bio }}</li>
+            <li>Email: {{ user.email }}</li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            {% for title in course_titles %}
+            <li>You are enrolled on {{ title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
+
+
+
