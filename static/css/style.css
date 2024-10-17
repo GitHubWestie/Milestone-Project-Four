@@ -1,5 +1,117 @@
-body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center fixed;
+/* Global Styles */
+:root {
+    --blue: #3892A6;
+    --purple: #776AA6;
+    --stone: #A7A298;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0.5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Home/index page styles */
+#main-content {
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    background-image: url('/static/images/hero.webp');
     background-size: cover;
-    height: calc(100vh - 56px);
+    background-position: right;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.description-section {
+    padding: 20px;
+}
+
+.description-heading {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.horizontal-line {
+    width: 50px;
+    border-top: 2px solid #000;
+    margin: 10px auto;
+}
+
+
+/* Dashboard Styles */
+.dashboard-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Lesson Styles */
+.video-placeholder {
+    background-color: #f8f9fa;
+    background-image: url('https://via.placeholder.com/600x300');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border: 1px solid #ddd;
+}
+
+.play-button {
+    font-size: 4rem;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.navigation {
+    min-width: 120px;
+}
+
+/* Basket styles */
+.course-image {
+    max-width: 150px;
+    height: auto;
+}
+
+.basket-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.remove-button {
+    font-size: 14px;
+    padding: 4px 0px;
+}
+
+.basket-card {
+    border: none;
+}
+
+.checkout-button {
+    background-color: var(--blue);
+    border: 1px solid #386ba6;
 }

@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ lesson.title }}</h1>
-    <iframe src="{{ lesson.video_url }}" frameborder="0"></iframe>
 
-    <div class="navigation">
-        {% if previous_lesson %}
-            <a href="{% url 'get_lesson' previous_lesson.uuid %}">Previous Lesson</a>
-        {% endif %}
-        
-        {% if next_lesson %}
-            <a href="{% url 'get_lesson' next_lesson.uuid %}">Next Lesson</a>
-        {% endif %}
+    <div class="container my-5 h-100">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <h1 class="text-start mb-3">{{ lesson.title }}</h1>
+                <div class="ratio ratio-16x9">
+                    <iframe src="{{ lesson.video_url }}" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <p class="mt-5 text-start">
+                    {{ lesson.description }}
+                </p>
+                <div class="d-flex mt-5">
+                    {% if previous_lesson %}
+                    <a href="{% url 'get_lesson' previous_lesson.uuid %}" class="btn btn-secondary navigation">
+                        Previous Lesson
+                    </a>
+                    {% endif %}
+                    {% if next_lesson %}
+                    <a href="{% url 'get_lesson' next_lesson.uuid %}" class="btn btn-secondary navigation ms-auto">
+                        Next Lesson
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome home!</h1>
+
+<div class="d-flex flex-column">
+    <div class="flex-grow-1 d-flex flex-column">
+        <div class="hero d-flex justify-content-end align-items-center text-center">
+            <div class="mx-5 px-5">
+                <h1 class="header-text">Start learning today</h1>
+                <button class="btn btn-secondary action-button mt-3">Start learning</button>
+            </div>
+        </div>
+
+        <div class="description-section text-center mt-4">
+            <h2 class="description-heading">What is CodeFusion?</h2>
+            <div class="horizontal-line"></div>
+            <p>
+                CodeFusion is an online learning platform designed for aspiring developers, beginners, and professionals
+                looking to enhance their programming abilities. The CodeFusion platform offers a comprehensive suite of 
+                courses tailored to the world of coding and provides an intuitive, interactive environment, where learners 
+                can engage with high-quality course content and participate in hands-on projects within a secure and 
+                user-friendly interface.
+            </p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

@@ -1,42 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Basket</h1>
 
-    <h2>Your basket</h2>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container mt-5">
+        <h2 class="basket-title">Your Basket</h2>
+        {% if not basket %}
+            <div>Nothing here right now!</div>
+        {% else %}
+        <hr>
+        <div class="row g-4">
             {% for item in basket %}
-            <tr>
-                <td scope="col">{{ item.title }}</td>
-                <td scope="col">{{ item.description }}</td>
-                <td scope="col">£{{ item.price }}</td>
-                <td scope="col">{{ item.quantity }}</td>
-                <td scope="col">£{{ item.total_price }}</td>
-                <td>
-                    <form action="{% url 'remove_from_basket' item.course.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit">Remove</button>
-                    </form>
-                </td>
-            </tr>
+            <div class="col-12">
+                <div class="card basket-card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 d-flex justify-content-center mb-5">
+                                <img src="{{ item.course.cover_image.url }}" class="img-fluid course-image"
+                                    alt="Course image">
+                            </div>
+                            <div class="col-md-6 align-self-start mb-3">
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <p class="card-text"><small>With {{ item.course.instructor }}</small></p>
+                            </div>
+                            <div class="col-md-3 align-self-start text-md-end text-start">
+                                <h5>£{{ item.price }}</h5>
+                                <form action="{% url 'remove_from_basket' item.course.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn remove-button">Remove</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
-    <p>Total: ${{ total }}</p>
-    <form action="{% url 'checkout' %}" method="POST">
-         {% csrf_token %}
-         <button class="btn btn-primary">Checkout</button>
-     </form> 
-    
+            <hr>
+            <div class="col-12">
+                <div class="d-flex justify-content-sm-start justify-content-md-end align-items-center">
+                    <h4>Total: £{{ total }}</h4>
+                </div>
+                <form action="{% url 'checkout' %}" method="POST"
+                    class="d-flex justify-content-sm-start justify-content-md-end align-items-center">
+                    {% csrf_token %}
+                    <button class="btn btn-primary checkout-button mt-3 mb-5">Checkout</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 
 {% endblock %}
