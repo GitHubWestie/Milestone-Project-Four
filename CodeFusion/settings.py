@@ -42,12 +42,16 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "allauth",
     "allauth.account",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "courses",
     "home",
     "basket",
     "users",
     "checkout",
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
