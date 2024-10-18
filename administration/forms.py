@@ -1,6 +1,6 @@
 from django import forms
 from courses.models import Course, Lesson
-from users.forms import CustomUserForm, UserProfileForm
+from django.forms.models import inlineformset_factory
 
 
 class CourseForm(forms.ModelForm):
@@ -16,13 +16,14 @@ class CourseForm(forms.ModelForm):
         ]
         
 
-
-class LessonForm(forms.ModelForm):
-    class Meta:
-        model = Lesson
-        fields = [
-            'title',
-            'description',
-            'video_url',
-            'order',
-        ]
+LessonFormset = inlineformset_factory(
+    Course, Lesson,
+    fields = (
+        'title',
+        'description',
+        'video_url',
+        'order',
+    ),
+    extra = 1,
+    can_delete = True
+)

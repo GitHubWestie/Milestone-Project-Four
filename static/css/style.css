@@ -118,7 +118,7 @@ footer {
 
 /* Admin Panel Styles */
 
-.admin-card-link {
-    padding: 0;
-    margin: 0;
+.edit-lesson-container {
+    border: 1px solid var(--stone);
+    border-radius: 6px;
 }

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col">
+            <h2>Edit Course</h2>
+        </div>
+        <div class="col d-flex justify-content-end align-items-center">
+            <a href="#add" class="btn btn-primary btn-sm">Add a lesson</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row my-3 p-3 edit-lesson-container">
+        <div class="col">
+            <form method="POST">
+                {% csrf_token %}
+                {{ course_form|crispy }}
+                <div class="row">
+                    <div class="col d-flex justify-content-start">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% for lesson in lesson_form %}
+    <div class="row my-3 p-3 edit-lesson-container">
+        <div class="col">
+            {% if forloop.last %}
+                <h2 id="add" class="mb-3">Add New Lesson</h2>
+            {% else %}
+                <h2 class="mb-3">Edit Lesson</h2>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ lesson|crispy }}
+                <div class="row">
+                    <div class="col d-flex justify-content-start">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
