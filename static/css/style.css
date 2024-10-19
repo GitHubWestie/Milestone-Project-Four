@@ -118,6 +118,10 @@ footer {
 
 /* Admin Panel Styles */
 
+.admin-course-card {
+    max-width: 540px;
+}
+
 .edit-lesson-container {
     border: 1px solid var(--stone);
     border-radius: 6px;

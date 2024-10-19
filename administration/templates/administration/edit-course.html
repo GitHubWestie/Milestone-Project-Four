@@ -5,57 +5,54 @@
 
 <div class="container my-4">
     <div class="row">
-        <div class="col">
-            <h2>Edit Course</h2>
+        <div class="col p-1">
+            <h2>{{ course.title }}</h2>
         </div>
-        <div class="col d-flex justify-content-end align-items-center">
+        <div class="col d-flex justify-content-end align-items-center p-1">
             <a href="#add" class="btn btn-primary btn-sm">Add a lesson</a>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row my-3 p-3 edit-lesson-container">
-        <div class="col">
-            <form method="POST">
-                {% csrf_token %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row my-3 p-3 edit-lesson-container">
+            <div class="col">
                 {{ course_form|crispy }}
-                <div class="row">
-                    <div class="col d-flex justify-content-start">
-                        <button type="reset" class="btn btn-secondary">Reset</button>
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
-                    </div>
+            </div>
+            <div class="row pe-0">
+                <div class="col d-flex justify-content-start">
+                    <button type="reset" class="btn btn-secondary">Undo changes</button>
                 </div>
-            </form>
+                <div class="col d-flex justify-content-end p-0">
+                    <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<div class="container">
-    {% for lesson in lesson_form %}
-    <div class="row my-3 p-3 edit-lesson-container">
-        <div class="col">
-            {% if forloop.last %}
-                <h2 id="add" class="mb-3">Add New Lesson</h2>
-            {% else %}
-                <h2 class="mb-3">Edit Lesson</h2>
-            {% endif %}
-            <form method="POST">
-                {% csrf_token %}
+        {{ lesson_form.management_form }}
+        {% for lesson in lesson_form %}
+        <div class="row my-3 p-3 edit-lesson-container">
+            <div class="col">
+                {% if forloop.last %}
+                    <h2 id="add" class="mb-3">Add New Lesson</h2>
+                {% else %}
+                    <h2 class="mb-3">Edit Lesson</h2>
+                {% endif %}
                 {{ lesson|crispy }}
-                <div class="row">
-                    <div class="col d-flex justify-content-start">
-                        <button type="reset" class="btn btn-secondary">Reset</button>
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
-                    </div>
+            </div>
+            <div class="row pe-0">
+                <div class="col d-flex justify-content-start">
+                    <button type="reset" class="btn btn-secondary">Undo changes</button>
                 </div>
-            </form>
+                <div class="col d-flex justify-content-end pe-0">
+                    <a href="{% url 'course_admin' %}" class="btn btn-danger me-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
+    </form>
 </div>
+
 {% endblock %}
