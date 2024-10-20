@@ -2,40 +2,44 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="row d-flex justify-content-center h-100 align-items-center">
-        <div class="col-md-6 col-lg-4 ps-3">
-                <form method="POST" action="{% url 'account_login' %}">
-                    {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_login" class="form-label">Login</label>
-                    <input type="text" name="login" placeholder="Username or email" autocomplete="email" required id="id_login" class="form-control" required>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center auth-container">
+            <div class="col-md-6 col-lg-4 ps-3">
+                    <form method="POST" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_login" class="form-label">Login</label>
+                        <input type="text" name="login" placeholder="Username or email" autocomplete="email" required id="id_login" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-describedby="id_password_helptext" id="id_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-4">Sign In</button>
+                    <div class="mb-3">
+                        <small>Forgot your password? Click</small>
+                        <a href="/accounts/password/reset/" class="text-sm auth-link">
+                            <small class="auth-link">here</small>
+                        </a>
+                    </div> 
+                </form>
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}             
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p>{{ field.label }}: {{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
                 </div>
-                <div class="mb-3">
-                    <label for="id_password" class="form-label">Password</label>
-                    <input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-describedby="id_password_helptext" id="id_password" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary mb-4">Sign In</button>
-                <div>
-                    <a href="/accounts/password/reset/" class="text-sm">Forgot your password?</a>
-                </div> 
-            </form>
+                {% endif %}
+            </div>
         </div>
     </div>
-
-{% if form.errors %}
-    <div class="alert alert-danger">
-        <ul>
-            {% for error in form.non_field_errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <li>{{ field.label }}: {{ error }}</li>
-                {% endfor %}
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
 
 {% endblock %}

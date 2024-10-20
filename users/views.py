@@ -4,7 +4,6 @@ from users.models import CustomUser, UserProfile
 from .forms import CustomUserForm, UserProfileForm
 from django.shortcuts import get_object_or_404
 
-# Create your views here.
 
 @login_required
 def dashboard(request):
@@ -15,13 +14,9 @@ def dashboard(request):
 
     enrolled_courses = request.user.enrollments.all()
 
-    course_titles = []
-    for courses in enrolled_courses:
-        course_titles.append(courses.course.title)
-
     context = {
         'complete_user' : complete_user,
-        'course_titles' : course_titles,
+        'enrolled_courses' : enrolled_courses,
     }
 
     return render(request, 'users/dashboard.html', context)
@@ -35,11 +30,12 @@ def edit_profile(request):
     """
 
     user = request.user
-    profile = get_object_or_404(UserProfile, user=user)
+    profile, created = UserProfile.objects.get_or_create(user=user)
 
     if request.method == 'POST':
         user_form = CustomUserForm(request.POST, instance=user)
-        profile_form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        profile_form = UserProfileForm(
+            request.POST, request.FILES, instance=profile)
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()

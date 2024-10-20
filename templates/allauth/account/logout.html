@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% load allauth i18n %}
 
-{% block head_title %}
-    {% trans "Sign Out" %}
-{% endblock head_title %}
-
-<h1>Sign Out</h1>
-
 {% block content %}
-<div class="row d-flex justify-content-center h-100 align-items-center">
-    <div class="col-md-6 col-lg-4 ps-3">
-        <div>
-            Learning never ends but everyone deserves a break!
+
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center auth-container">
+            <div class="col-md-6 col-lg-4 ps-3">
+                <p>
+                    Learning never ends but everyone deserves a break!
+                </p>
+                <form method="POST" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Sign Out</button>
+                </form>
+            </div>
         </div>
-        <form method="POST" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-primary">Sign Out</button>
-        </form>
     </div>
-</div>
+
 {% endblock content %}

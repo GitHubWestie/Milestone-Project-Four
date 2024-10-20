@@ -15,6 +15,34 @@ a {
     color: #000;
 }
 
+/* Authentication Styles */
+.auth-container {
+    height: 90vh;
+}
+
+.auth-link {
+    color: #464FEB;
+    transition: text-decoration, 1s;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Base Styles */
+.cta-btn-1 {
+    color: #172119;
+    background-color: #bbbc9c;
+    border: 1px solid #172119;
+    border-radius: 3px;
+}
+
+.cta-btn-2 {
+    color: #172119;
+    border: 1px solid #172119;
+    border-radius: 3px;
+}
+
 /* Home/index page styles */
 #main-content {
     height: calc(100vh - var(--navbar-height));
@@ -26,11 +54,21 @@ a {
     background-image: url('/static/images/hero.webp');
     background-size: cover;
     background-position: right;
-    height: 60vh;
+    height: 55svh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.header-text {
+    font-size: 3rem;
+}
+
+.action-button {
+    color: #172119;
+    background-color: #bbbc9c;
+    border: 1px solid #172119;
 }
 
 footer {
@@ -54,9 +92,10 @@ footer {
 }
 
 .horizontal-line {
-    width: 50px;
-    border-top: 2px solid #000;
-    margin: 10px auto;
+    width: 50%;
+    border-top: 1px solid #000;
+    margin: 0px auto;
+    opacity: 0.3;
 }
 
 
@@ -66,6 +105,36 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
+    background-color: #1f3f1a0e;
+}
+
+.profile-pic {
+    max-width: 128px;
+    height: auto;
+}
+
+.enrolled-course-img {
+    max-width: 32px;
+    height: auto;
+}
+
+/* Courses Styles */
+.course-card-img {
+    max-width: 256px;
+    height: auto;
+}
+
+.course-card {
+    height: 616px;
+}
+
+.course-card-text {
+    display: -webkit-box;
+    line-clamp: 10;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Lesson Styles */
@@ -89,6 +158,17 @@ footer {
 
 .navigation {
     min-width: 120px;
+}
+
+.player-border {
+    box-shadow: 0px 2px 3px #0b4b33;
+}
+
+.lesson-bg {
+    background-color: #0b4b3321;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px #0b4b3373;
 }
 
 /* Basket styles */

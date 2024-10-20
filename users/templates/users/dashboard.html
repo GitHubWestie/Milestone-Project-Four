@@ -2,69 +2,90 @@
 
 {% block content %}
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12">
-            <h2>Welcome back, <span id="user-name">{{ user.username }}!</span></h2>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Welcome back, <span id="user-name">{{ user.username }}!</span></h2>
+            </div>
         </div>
-    </div>
-    <div class="row d-flex justify-content-center mt-4">
-        <div class="col-md-6">
-            <div class="dashboard-section">
-                <h3>Profile</h3>
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Username:</div>
-                            {{ user.username }}
+        <div class="row d-flex justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="dashboard-section">
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <h3>Profile</h3>
                         </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">First name:</div>
-                            {{ user.first_name }}
+                        <div class="col d-flex justify-content-end align-items-center">
+                            {% if complete_user.profile and complete_user.profile.profile_pic %}
+                            <img src="{{ complete_user.profile.profile_pic.url }}" alt="user profile picture" class="profile-pic img-fluid mb-3 me-2">
+                            {% endif %}
                         </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Last name:</div>
-                            {{ user.last_name }}
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Bio:</div>
-                            {{ complete_user.profile.bio }}
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Email:</div>
-                            {{ user.email }}
-                        </div>
-                    </li>
-                </ul>
-                <div class="d-flex justify-content-between mt-2">
-                    <a href="{% url 'account_reset_password' %}" class="btn btn-secondary">Change Password</a>
-                    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                    
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Username:</div>
+                                {{ user.username }}
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">First name:</div>
+                                {{ user.first_name }}
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Last name:</div>
+                                {{ user.last_name }}
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Bio:</div>
+                                {{ complete_user.profile.bio }}
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Email:</div>
+                                {{ user.email }}
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-between mt-2">
+                        <a href="{% url 'account_reset_password' %}" class="btn btn-secondary">Change Password</a>
+                        <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-section">
+                    <h3>My Courses</h3>
+                    <ul class="list-group">
+                        <div class="fw-bold mb-2">You are enrolled on:</div>
+                        {% if enrolled_courses %}
+                            {% for courses in enrolled_courses %}
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <img src="{{ courses.course.cover_image.url }}" alt="" class="img-fluid enrolled-course-img">
+                                    <div class="ms-2 me-auto">
+                                        {{ courses.course.title }}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                        <li>
+                            <p>
+                                Get enrolled to start learning!
+                            </p>
+                            <a href="{% url 'get_courses' %}" class="btn btn-primary">Go to courses</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="dashboard-section">
-                <h3>My Courses</h3>
-                <ul class="list-group">
-                    <div class="fw-bold">You are enrolled on:</div>
-                    {% for title in course_titles %}
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <a href="#">{{ title }}</a>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
     </div>
-</div>
+
 {% endblock %}

@@ -40,8 +40,9 @@
                     <h4>Total: £{{ total }}</h4>
                 </div>
                 <form action="{% url 'checkout' %}" method="POST"
-                    class="d-flex justify-content-sm-start justify-content-md-end align-items-center">
+                    class="d-flex justify-content-sm-start justify-content-md-between align-items-center">
                     {% csrf_token %}
+                    <a href="{% url 'get_courses' %}" class="btn btn-primary checkout-button mt-3 mb-5">Continue browsing</a>
                     <button class="btn btn-primary checkout-button mt-3 mb-5">Checkout</button>
                 </form>
             </div>

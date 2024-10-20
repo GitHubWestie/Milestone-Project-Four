@@ -32,6 +32,7 @@
 	{% endblock %}
 
 	<title>CodeFusion</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
 </head>
 
 <body>
@@ -64,24 +65,24 @@
 									<a class="nav-link" href="{% url 'administration' %}">Admin Panel</a>
 								</li>
 							{% endif %}
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" href="{% url 'get_courses' %}">Courses</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" href="{% url 'view_basket' %}">Basket</a>
 							</li>
-							<li class="nav-item">
+							<li class="nav-item cta-btn-2 me-2">
 								<a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
 							</li>
 							{% else %}
 							<li class="nav-item">
-								<a class="nav-link" href="{% url 'account_login' %}">Login</a>
+								<a class="nav-link cta-btn-2 me-2" href="{% url 'account_login' %}">Login</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" href="{% url 'account_signup' %}">Register</a>
+								<a class="nav-link cta-btn-1 me-2" href="{% url 'account_signup' %}">Register</a>
 							</li>
 						{% endif %}
 					</ul>
