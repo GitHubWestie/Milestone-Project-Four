@@ -89,11 +89,16 @@
 	{% endblock %}
 
 	{% if messages %}
-	{% for message in messages %}
-		<div id="django-message" class="message-container alert alert-danger">
-			{{ message }}
-		</div>
-	{% endfor %}
+		{% for message in messages %}
+			<div id="django-message" class="message-container alert 
+				{% if message.tags == 'error' %}
+					alert-danger
+				{% else %}
+					alert-{{ message.tags }}
+				{% endif %}">
+				{{ message }}
+			</div>
+		{% endfor %}
 	{% endif %}
 
 	{% block content %}

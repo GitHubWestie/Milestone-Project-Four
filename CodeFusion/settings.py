@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 if os.path.exists('env.py'):
     import env
@@ -27,7 +28,11 @@ SECRET_KEY = "SECRET_KEY"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    '8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net',
+    'https://codefusion-23367f5507c1.herokuapp.com/',
+    ]
+    
 CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
 
 
@@ -114,12 +119,19 @@ WSGI_APPLICATION = "CodeFusion.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(env.DATABASE_URL)
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
