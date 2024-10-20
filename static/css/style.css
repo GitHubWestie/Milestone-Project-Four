@@ -16,13 +16,13 @@ a {
 }
 
 /* Authentication Styles */
-.auth-container {
+.auth-container,
+.redirect-container {
     height: 90vh;
 }
 
 .auth-link {
     color: #464FEB;
-    transition: text-decoration, 1s;
 }
 
 .auth-link:hover {

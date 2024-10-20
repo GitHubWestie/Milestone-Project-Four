@@ -33,3 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const hideError = document.getElementById('django-message')
+
+    if(hideError) {
+        setTimeout(function() {
+            hideError.hidden = true
+        }, 3000);
+    }
+});

@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section>
-    <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
-</section>
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center auth-container">
+        <div class="col-md-6 col-lg-4 ps-3">
+            <div class="mb-3">
+                <strong>Checkout cancelled</strong>
+            </div>
+            <div class="mb-3">
+                <p>Wait here to be reirected</p>
+            </div>
+            <small>but just in case...</small>
+            <div class="mb-3">
+                <a href="{% url 'view_basket' %}" class="btn btn-primary btn-sm my-3">Click here</a>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript redirect element -->
 <div id="redirect" data-cancel-url = "{% url 'view_basket' %}"></div>
 {% endblock %}

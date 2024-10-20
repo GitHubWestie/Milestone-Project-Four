@@ -86,3 +86,7 @@
 [AdamJ.eu](https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/#:~:text=Django's%20template%20system%20only%20escapes,recommend%20you%20never%20do%20it.)
 
 [Markus Spiske](https://www.pexels.com/photo/black-and-white-striped-textile-193350/)
+
+[Image Resizer](https://imageresizer.com/)
+
+[Scaler Topics - Riya Verma - JavaScript Reference](https://www.scaler.com/topics/javascript-hide-element/)
