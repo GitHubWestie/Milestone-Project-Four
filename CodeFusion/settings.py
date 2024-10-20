@@ -30,7 +30,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net',
-    'https://codefusion-23367f5507c1.herokuapp.com/',
+    'codefusion-23367f5507c1.herokuapp.com',
     ]
     
 CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
