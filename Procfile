@@ -1,1 +1,1 @@
-web: gunicorn codefusion.wsgi --log-file -
+web: gunicorn CodeFusion.wsgi --log-file -
