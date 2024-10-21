@@ -59,7 +59,7 @@
 ## **Features**
 
 ### Navigation
-![mobile-nav](/other_media/README_files/README_files/nav-mob.png) ![admin-nav](/other_media/README_files/admin-nav.png) ![desktop-nav](/other_media/README_files/desktop-nav.png)
+![mobile-nav](/other_media/README_files/nav-mob.png) ![admin-nav](/other_media/README_files/admin-nav.png) ![desktop-nav](/other_media/README_files/desktop-nav.png)
 
 Naviagtion is kept clean and simple. While larger screens afford the full size nav menu, nav display on smaller screens is condensed into a burger menu. It also responds to the type of user that is logged in, providing additional features for users with the appropriate permissions.
 
@@ -91,7 +91,67 @@ As these cards are also links to the course content, should a user attempt to ac
 ### Lessons
 ![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
 
-Each lesson is a video so users can follow along with the course material at their own pace and revisit any topics they wish to at their leisure. Navigation buttons are placed underneath the video for convenient navigation between lessons.
+Each lesson is a video so users can follow along with the course material at their own pace and revisit any topics they wish to at their leisure. Navigation buttons are placed underneath the video for convenient navigation between lessons. Whilst viewing is possible in prtrait mode, landscape is very much recommended.
+
+
+### Basket
+![]()
+
+
+### Checkout
+![]()
+
+
+### Admin Panel
+![]()
+
+
+### Course Management
+![]()
+
+
+## Structure
+The schema for this project called for a variety of relationship types between tables. 
+
+![schema](/other_media/README_files/lucidchart_schemas.png)
+
+
+The flow chart
+
+![flowchart](/other_media/README_files/CodeFusion_FlowChart.png)
+
+
+## Skeleton
+
+![figmahome](/other_media/README_files/CodeFusionIndex.png)
+
+![figmaregister](/other_media/README_files/CodeFusionRegister.png)
+
+![figmalogin](/other_media/README_files/CodeFusionLogin.png)
+
+![figmadashboard](/other_media/README_files/CodeFusionDashboard.png)
+
+![figmacourses](/other_media/README_files/CodeFusionCourses.png)
+
+![figmalessons](/other_media/README_files/CodeFusionLessons.png)
+
+![figmabasket](/other_media/README_files/CodeFusionBasket.png)
+
+![figmacheckout](/other_media/README_files/CodeFusionCheckout.png)
+
+## Surface
+
+![Landing Page](/other_media/README_files/home-mob.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png)
+
+![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
+
+![course-mob](/other_media/README_files/course-mob.png)
+
+![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
+
+## Testing
+
+### User Stories
 
 
 
