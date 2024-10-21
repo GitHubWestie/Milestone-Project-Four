@@ -1,10 +1,9 @@
 # **CodeFusion**
 
-**CodeFusion** is an online learning platform designed for aspiring developers, beginners, and professionals looking to enhance their programming abilities. The platform offers a comprehensive suite of courses tailored to the world of coding.
 
-## **Project Overview**
+## **Strategy**
 
-**CodeFusion** provides an intuitive and interactive environment where learners can engage with high-quality course content and participate in hands-on projects within a secure and user-friendly interface.
+**CodeFusion** CodeFusion is an online learning platform designed for aspiring developers, beginners, and professionals looking to enhance their programming abilities. The CodeFusion platform offers a comprehensive suite of courses tailored to the world of coding and provides an intuitive, interactive environment, where learners can engage with high-quality course content and participate in hands-on projects within a secure and user-friendly interface.
 
 ## **Scope**
 
@@ -56,6 +55,48 @@
 - Know that my data is handled securely,
 
 ---
+
+## **Features**
+
+### Navigation
+![mobile-nav](/other_media/README_files/README_files/nav-mob.png) ![admin-nav](/other_media/README_files/admin-nav.png) ![desktop-nav](/other_media/README_files/desktop-nav.png)
+
+Naviagtion is kept clean and simple. While larger screens afford the full size nav menu, nav display on smaller screens is condensed into a burger menu. It also responds to the type of user that is logged in, providing additional features for users with the appropriate permissions.
+
+### Welcoming Landing Page
+![Landing Page](/other_media/README_files/home-mob.png)
+
+The landing page is available to all, including anonymous users. The image was chosen to give a sense of mystery with the strong Matrix vibe while the text encouraging users to start learning should make them feel like it is something that they can be a part of. Underneath there is a brief description of wha CodeFusion is, who it is for and why potential students should choose to study with CodeFusion. 
+
+### Secure User Authentication
+![Register](/other_media/README_files/register.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png) ![Password reset](/other_media/README_files/127.0.0.1_8000_accounts_password_reset_(iPhone%206_7_8)%20(1).png) ![login-validation](/other_media/README_files/login-validation.png) ![login-error](/other_media/README_files/login-error.png) ![logout-break](/other_media/README_files/logout-break.png)
+
+Other than the landing page everything is secured behind a user account. User data is securely stored using Django-allauth.
+
+### Dashboard
+![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
+
+The dashboard provides a space for users to store their profile information. Some of this is taken at user signup but only basic info like username and email. The remaining fields are optional and allow users to customise their profile as much or as little as they like.
+
+The second section of the dashboard provides a quick glance at the courses that the user is currently enrolled on.
+
+### Courses
+![courses](/other_media/README_files/courses.png) ![course-mob](/other_media/README_files/course-mob.png) ![course-access](/other_media/README_files/course-access-denied.png)
+
+The course list clearly displays courses, giving users a clear indication of what the course is about at a glance. A brief description is included to give the user a bit more information on what is covered and who the course is aimed at. Finally, the price and add to basket button at the bottom. 
+
+As these cards are also links to the course content, should a user attempt to access a course that they ae not enrolled in a simple message is displayed to indicate that the content is restricted. This message automatically times out after a few seconds.
+
+
+### Lessons
+![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
+
+Each lesson is a video so users can follow along with the course material at their own pace and revisit any topics they wish to at their leisure. Navigation buttons are placed underneath the video for convenient navigation between lessons.
+
+
+
+
+
 
 ** Credits
 

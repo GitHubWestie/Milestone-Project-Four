@@ -26,14 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net',
+    '8000-githubwesti-milestonepr-hjibg5z0llt.ws.codeinstitute-ide.net',
     'codefusion-23367f5507c1.herokuapp.com',
     ]
     
-CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-hjibg5z0llt.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -135,8 +135,6 @@ else:
         }
     }
 
-print(f"DEBUG is {DEBUG}")
-print(f"DATABASE_URL is {os.environ.get('DATABASE_URL')}")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -235,21 +233,19 @@ if 'USE_AWS' in os.environ:
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # Static and Media files
-    STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
-    STATICFILES_LOCATION = 'static'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-    MEDIAFILES_LOCATION = 'media'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
     # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
     STORAGES = {
         "default": {
-            "BACKEND": "storages.backends.s3.S3Storage",
+            "BACKEND": "custom_storages.MediaStorage",
         },
         "staticfiles": {
-            "BACKEND": "storages.backends.s3.S3Storage",
+            "BACKEND": "custom_storages.StaticStorage",
         },
     }
 
