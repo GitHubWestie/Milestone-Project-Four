@@ -124,6 +124,7 @@ WSGI_APPLICATION = "CodeFusion.wsgi.application"
 # DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if os.environ.get('DATABASE_URL'):
+    print('In POSTGRES')
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
