@@ -2,10 +2,16 @@
 
 {% block content %}
 
-    <div class="container my-5 h-100">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{{ lesson.title }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container my-4 h-100">
         <div class="row justify-content-center lesson-bg">
-            <div class="col-12 col-md-8">
-                <h1 class="text-start mb-3">{{ lesson.title }}</h1>
+            <div class="col-12 col-md-8 mt-4">
                 <div class="ratio ratio-16x9 player-border">
                     <iframe src="{{ lesson.video_url }}" title="YouTube video" allowfullscreen></iframe>
                 </div>
