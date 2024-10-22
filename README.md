@@ -202,7 +202,15 @@ The flow chart
 ![Lighthouse](/other_media/lighthouse/desktop/basket.png) ![Lighthouse](/other_media/lighthouse/desktop/course-admin.png) ![Lighthouse](/other_media/lighthouse/desktop/lesson-admin.png)
 
 ### Validator Results
-
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
+![HTML Validator]()
 
 ** Credits
 

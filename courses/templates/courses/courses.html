@@ -16,9 +16,9 @@
             <div class="col">
                 {% for lesson in course.lessons.all %}
                 {% if lesson.order == 0 %}
-                <div class="card course-card mb-3">
+                <div class="card course-card mb-3 mx-auto">
                     <a href="{% url 'get_lesson' lesson.uuid %}">
-                        <img src="{{ course.cover_image.url }}" class="img-fluid course-card-img mx-auto" alt="course image">
+                        <img src="{{ course.cover_image.url }}" class="img-fluid course-card-img mx-auto d-block" alt="course image">
                     </a>
                     <div class="card-body d-flex flex-column">
                         <a href="{% url 'get_lesson' lesson.uuid %}" class="stretched-link">

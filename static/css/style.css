@@ -119,12 +119,17 @@ footer {
 
 /* Courses Styles */
 .course-card-img {
-    max-width: 256px;
-    height: auto;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 100%; 
+    height: auto; 
 }
 
 .course-card {
     height: 616px;
+    min-width: 260px;
+    max-width: 305px;
 }
 
 .course-card-text {

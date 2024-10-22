@@ -1,4 +1,5 @@
 {% extends  'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container my-4">
@@ -58,4 +59,9 @@
     </div>
 </div>
 
+{% endblock %}
+
+
+{% block extra_js %}
+    <script src="{% static 'js/course-delete-model.js' %}"></script>
 {% endblock %}
