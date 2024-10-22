@@ -11,6 +11,9 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Create your views here.
 def checkout(request):
+    base_url = request.build_absolute_uri('/')
+    success_url=f"{base_url}checkout/success?session_id={{CHECKOUT_SESSION_ID}}"
+    cancel_url=f"{base_url}checkout/cancel/"
     basket = Basket(request)
 
     if request.method == 'POST':
@@ -32,8 +35,8 @@ def checkout(request):
             payment_method_types=['card'],
             line_items=line_items,
             mode='payment',
-            success_url="https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net/checkout/success?session_id={CHECKOUT_SESSION_ID}", 
-            cancel_url="https://8000-githubwesti-milestonepr-6u8kykie0xa.ws.codeinstitute-ide.net/checkout/cancel/", 
+            success_url=success_url,
+            cancel_url=cancel_url,
         )
 
         return redirect(checkout_session.url, code=303)
