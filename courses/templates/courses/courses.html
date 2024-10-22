@@ -16,30 +16,27 @@
             <div class="col">
                 {% for lesson in course.lessons.all %}
                 {% if lesson.order == 0 %}
-                <div class="card course-card mb-3 mx-auto">
-                    <a href="{% url 'get_lesson' lesson.uuid %}">
-                        <img src="{{ course.cover_image.url }}" class="img-fluid course-card-img mx-auto d-block" alt="course image">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <a href="{% url 'get_lesson' lesson.uuid %}" class="stretched-link">
+                <a href="{% url 'get_lesson' lesson.uuid %}">
+                    <div class="card course-card mb-3">
+                        <img src="{{ course.cover_image.url }}" class="img-fluid course-card-img mx-auto"
+                        alt="course image">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ course.title }}</h5>
-                        </a>
-                        <p class="card-text course-card-text">{{ course.description }}</p>
-                        <div class="mt-auto">
-                            <strong class="d-block text-end">£{{ course.price }}</strong>
-                            <form action="{% url 'add_to_basket' course.id %}" method="POST" class="text-end">
+                            <p class="card-text course-card-text">{{ course.description }}</p>
+                            <strong class="text-end mt-auto pe-2">{{ course.price }}</strong>
+                            <form action="{% url 'add_to_basket' course.id %}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary mt-2 w-100">Add to Basket</button>
                             </form>
                         </div>
                     </div>
-                </div>
-                {% endif %}
-                {% endfor %}
+                </a>
             </div>
+            {% endif %}
+            {% endfor %}
             {% endif %}
             {% endfor %}
         </div>
     </div>
-    
+
 {% endblock %}
