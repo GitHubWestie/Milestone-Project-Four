@@ -51,9 +51,6 @@ a {
 }
 
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 55svh;
     background: 
         url('/static/images/hero-slim.webp')
