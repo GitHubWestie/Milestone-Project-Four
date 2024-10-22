@@ -101,15 +101,19 @@ Courses that have been aded to the basket appear here. Each course gives some in
 
 
 ### Checkout
-![Checkout]()
+![Checkout](/other_media/README_files/checkout.png) ![Checkout](/other_media/README_files/checkout-success.png) ![Checkout](/other_media/README_files/checkout-cancel.png)
 
+Stripe checkout takes care of payments. Form is fully validated and secure and provides options for remembering users and faster checkouts using link. 
 
-### Admin Panel
-![Admin]()
+If a user cancels they are taken back to the site via a cancel confirmation page which automatically redirects to the basket after a few seconds. If this fails there is a button that can be clicked or the navigation menu can be used so the user isnt stranded. 
+
+Once checkout is completed a success message is displayed for a few seconds before automatically redirecting back to the dashboard where the user can see theie purchased courses in the enrollment list. Again, should the redirection fail there is a button or the navigation menu to rescue the user.
 
 
 ### Course Management
-![Course Management]()
+![Admin](/other_media/README_files/admin-panel.png) ![Course Management](/other_media/README_files/course-admin.png) ![Course Modal](/other_media/README_files/course-admin-modal.png) ![Lesson Management](/other_media/README_files/lesson-admin.png)
+
+Currently, admins can access the course management section from here. From here admins have full control over CRUD functionality for all course and lesson content. The delete button on courses is defensively programmed to avoid accidental deletions.
 
 
 ## Structure
@@ -147,16 +151,15 @@ The flow chart
 
 ![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
 
-![course-mob](/other_media/README_files/course-mob.png)
+![course-mob](/other_media/README_files/course-mob.png) ![course-tab](/other_media/README_files/course-tab.png)
 
 ![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
+
+
 
 ## Testing
 
 ### User Stories
-
-#### Anonymous User Stories
-
 
 #### Learner User Stories
 
