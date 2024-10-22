@@ -51,18 +51,20 @@ a {
 }
 
 .hero {
-    background-image: url('/static/images/hero.webp');
-    background-size: cover;
-    background-position: right;
-    height: 55svh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
+    height: 55svh;
+    background: 
+        url('/static/images/hero-slim.webp')
+        no-repeat
+        left center
+        #172119;
 }
 
 .header-text {
     font-size: 3rem;
+    color: #bbbc9c;
 }
 
 .action-button {
@@ -205,4 +207,12 @@ footer {
 .edit-lesson-container {
     border: 1px solid var(--stone);
     border-radius: 6px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1440px) {
+    .hero {
+        background-position: right, center;
+    }
 }
