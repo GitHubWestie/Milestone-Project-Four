@@ -41,7 +41,7 @@
 
 ---
 
-### Cross-User Stories**
+### **Cross-User Stories**
 
 #### As a learner or admin I want:
 
@@ -95,19 +95,21 @@ Each lesson is a video so users can follow along with the course material at the
 
 
 ### Basket
-![]()
+![basket](/other_media/README_files/basket.png)
+
+Courses that have been aded to the basket appear here. Each course gives some information about the course such as title, instructor and price. There is also a remove button should users change their mind. Each item added to the basket will bring the user to the basket so a continue browsing button is placed at the bottom for conveniently returning to brose more courses. When the user is ready to checkout the checkout button will take them to process payment.
 
 
 ### Checkout
-![]()
+![Checkout]()
 
 
 ### Admin Panel
-![]()
+![Admin]()
 
 
 ### Course Management
-![]()
+![Course Management]()
 
 
 ## Structure
@@ -153,8 +155,47 @@ The flow chart
 
 ### User Stories
 
+#### Anonymous User Stories
 
 
+#### Learner User Stories
+
+| Expectation                                                                                                                                                    | Implementation |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| I want to create an account by providing my email and password, so that I can securely access and personalize my learning experience.                          |Users are able to create an account via the register page. Anonymous users cannot access restricted pages, even with a url|
+| I want to log in using my credentials, so that I can access my enrolled courses and progress.                                                                  |Once registered users can login to their account securely                |
+| I want to reset my password through my registered email, so that I can regain access to my account without hassle.                                             |Reghistered users can request a password reset email from their user dashboard                |
+| I want to browse a list of available courses, so that I can choose courses that interest me.                                                                   |The courses page provides a list of all courses that are available to study                |
+| I want to view detailed information about a course, including syllabus, instructor, and price, so that I can make an informed decision before enrolling.       |Each course has a title, image and description that give the user a clear idea of the course content and the level of difficulty|
+| I want to enroll in a course by completing the payment process, so that I can gain access to course materials and start learning.                              |Users can pay for courses in order to gain access to the content|
+| I want to make payments securely so that I can ensure my financial information is protected during transactions.                                               |Payments are made secure using Stripe checkout. Users can be confident their data is safe                |
+| I want to receive a confirmation message after successful payment, so that I know my enrollment has been processed.                                            |Users are taken to a confirmation message after successful payment                |
+| I want to navigate through different modules or sections within a course, so that I can follow the course content easily.                                      |Course lessons are ordered and navigation on each lesson page helps users stay on track                 |
+| I want to update my profile information, such as my name and contact details, so that my account information remains current and accurate.                     |Users are able to update their profile from the dashboard                |
+| I want to view a history of all courses I have enrolled in, so that I can easily revisit past courses or track my learning progress.                           |Enrolled course are displayed in the user dashboard                |
+
+#### Admin User Stories
+| Expectation                                                                                  | Implementation |
+|----------------------------------------------------------------------------------------------|----------------|
+| I want to create new courses by adding titles, descriptions, modules, and pricing, so that I can expand the platform’s offerings to attract more learners. |Admin users are able to access the Course Management interface and create courses and lesson content                |
+| I want to update course details and materials, so that I can ensure that the content remains current and relevant. |Admin users are able to access the Course Management interface and edit courses and specific lesson content                |
+| I want to remove courses that are outdated or no longer needed, so that the platform remains organized and focused on quality content. |Admin users are able to access the Course Management interface and delete courses               |
+| I want to add, edit, or reorder modules within a course, so that the course structure is logical and effective for learners. |Admin users are able to access the Course Management interface and edit specific lesson content                |
+
+#### Cross-user Stories
+| Expectation                                            | Implementation |
+|--------------------------------------------------------|----------------|
+| I want to access the platform on various devices (desktop, tablet, mobile), so that I can use the platform conveniently from anywhere. |The platform has been designed and tested throughout to ensure compatibility across a range of devices and screen sizes                |
+| I want to navigate the platform easily using a clear and consistent menu structure, so that I can find the features and information I need without confusion. |Navigation is simple and consistent, changing only depending on screen size or for additional admin navigation                |
+| I want to know that my data is handled securely, so that I can trust the platform with my personal and financial information. |Django allauth and Stripe are well regarded as being safe and secure means of handling user data                |
+
+
+### Functionality
+![test sheet one](/other_media/README_files/test-sheet-1.png)
+
+![test sheet one](/other_media/README_files/test-sheet-2.png)
+
+![test sheet one](/other_media/README_files/test-sheet-3.png)
 
 
 
@@ -191,3 +232,5 @@ The flow chart
 [Image Resizer](https://imageresizer.com/)
 
 [Scaler Topics - Riya Verma - JavaScript Reference](https://www.scaler.com/topics/javascript-hide-element/)
+
+[AmIresponsive](https://ui.dev/amiresponsive)
