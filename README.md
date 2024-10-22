@@ -87,18 +87,15 @@ The course list clearly displays courses, giving users a clear indication of wha
 
 As these cards are also links to the course content, should a user attempt to access a course that they ae not enrolled in a simple message is displayed to indicate that the content is restricted. This message automatically times out after a few seconds.
 
-
 ### Lessons
 ![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
 
 Each lesson is a video so users can follow along with the course material at their own pace and revisit any topics they wish to at their leisure. Navigation buttons are placed underneath the video for convenient navigation between lessons. Whilst viewing is possible in prtrait mode, landscape is very much recommended.
 
-
 ### Basket
 ![basket](/other_media/README_files/basket.png)
 
 Courses that have been aded to the basket appear here. Each course gives some information about the course such as title, instructor and price. There is also a remove button should users change their mind. Each item added to the basket will bring the user to the basket so a continue browsing button is placed at the bottom for conveniently returning to brose more courses. When the user is ready to checkout the checkout button will take them to process payment.
-
 
 ### Checkout
 ![Checkout](/other_media/README_files/checkout.png) ![Checkout](/other_media/README_files/checkout-success.png) ![Checkout](/other_media/README_files/checkout-cancel.png)
@@ -109,23 +106,19 @@ If a user cancels they are taken back to the site via a cancel confirmation page
 
 Once checkout is completed a success message is displayed for a few seconds before automatically redirecting back to the dashboard where the user can see theie purchased courses in the enrollment list. Again, should the redirection fail there is a button or the navigation menu to rescue the user.
 
-
 ### Course Management
 ![Admin](/other_media/README_files/admin-panel.png) ![Course Management](/other_media/README_files/course-admin.png) ![Course Modal](/other_media/README_files/course-admin-modal.png) ![Lesson Management](/other_media/README_files/lesson-admin.png)
 
 Currently, admins can access the course management section from here. From here admins have full control over CRUD functionality for all course and lesson content. The delete button on courses is defensively programmed to avoid accidental deletions.
-
 
 ## Structure
 The schema for this project called for a variety of relationship types between tables. 
 
 ![schema](/other_media/README_files/lucidchart_schemas.png)
 
-
 The flow chart
 
 ![flowchart](/other_media/README_files/CodeFusion_FlowChart.png)
-
 
 ## Skeleton
 
@@ -147,11 +140,13 @@ The flow chart
 
 ## Surface
 
-![Landing Page](/other_media/README_files/home-mob.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png) ![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
+![Landing Page](/other_media/README_files/home-mob.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png) 
 
-![course-mob](/other_media/README_files/course-mob.png) ![course-tab](/other_media/README_files/course-tab.png) ![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
+![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
 
+![course-mob](/other_media/README_files/course-mob.png) ![course-tab](/other_media/README_files/course-tab.png) 
 
+![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
 
 ## Testing
 
@@ -202,17 +197,44 @@ The flow chart
 ![Lighthouse](/other_media/lighthouse/desktop/basket.png) ![Lighthouse](/other_media/lighthouse/desktop/course-admin.png) ![Lighthouse](/other_media/lighthouse/desktop/lesson-admin.png)
 
 ### Validator Results
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
-![HTML Validator]()
+![HTML Validator](/other_media/validation/index.png) ![HTML Validator](/other_media/validation/dashboard.png)
+![HTML Validator](/other_media/validation/courses.png) ![HTML Validator](/other_media/validation/lessons.png)
+![HTML Validator](/other_media/validation/basket.png) ![HTML Validator](/other_media/validation/admin-create.png)
+![HTML Validator](/other_media/validation/course-admin.png) ![HTML Validator](/other_media/validation/css.png)
 
-** Credits
+The HTML validator was unable to assess and validate by URL for any pages that required authentication to access. In order to assess the HTML I copied the code from the dev tools in Chrome and pasted into the validator. 
+
+## Technologies
+
+### Languages Used
+- HTML
+- CSS
+- JavaScript
+- Python
+
+### Frameworks
+- [Django 5.1](https://www.djangoproject.com/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [Stripe](https://docs.stripe.com/checkout/quickstart)
+- [Postgres](https://www.postgresql.org/)
+
+### Libraries
+- [FontAwesome](https://fontawesome.com/)
+
+### Programs and Services
+- [Figma](https://www.figma.com/)
+- [GIMP](https://www.gimp.org/)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+- [GitHub](https://github.com/)
+- [Google Dev Tools](https://developer.chrome.com/docs/devtools)
+- [Heroku](https://www.heroku.com/)
+- [pip](https://pypi.org/project/pip/)
+
+### Testing and Validation
+- [W3C Markup Validation Service](https://validator.w3.org/)
+- 
+
+## Credits
 
 [Django Documentation](https://www.djangoproject.com/)
 
