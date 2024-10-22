@@ -147,13 +147,9 @@ The flow chart
 
 ## Surface
 
-![Landing Page](/other_media/README_files/home-mob.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png)
+![Landing Page](/other_media/README_files/home-mob.png) ![login](/other_media/README_files/127.0.0.1_8000_accounts_login_(iPhone%206_7_8)%20(1).png) ![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
 
-![dashboard](/other_media/README_files/dashboard1.png) ![dashboard](/other_media/README_files/dashboard2.png)
-
-![course-mob](/other_media/README_files/course-mob.png) ![course-tab](/other_media/README_files/course-tab.png)
-
-![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
+![course-mob](/other_media/README_files/course-mob.png) ![course-tab](/other_media/README_files/course-tab.png) ![portrait](/other_media/README_files/lesson-portrait.png) ![landscape](/other_media/README_files/lesson-landscape.png)
 
 
 
@@ -200,6 +196,12 @@ The flow chart
 
 ![test sheet one](/other_media/README_files/test-sheet-3.png)
 
+### Lighthouse Results
+![Lighthouse](/other_media/lighthouse/desktop/home.png) ![Lighthouse](/other_media/lighthouse/desktop/register.png) ![Lighthouse](/other_media/lighthouse/desktop/login.png)
+![Lighthouse](/other_media/lighthouse/desktop/dashboard.png) ![Lighthouse](/other_media/lighthouse/desktop/courses.png) ![Lighthouse](/other_media/lighthouse/desktop/lesson.png)
+![Lighthouse](/other_media/lighthouse/desktop/basket.png) ![Lighthouse](/other_media/lighthouse/desktop/course-admin.png) ![Lighthouse](/other_media/lighthouse/desktop/lesson-admin.png)
+
+### Validator Results
 
 
 ** Credits

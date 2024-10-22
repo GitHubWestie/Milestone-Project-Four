@@ -10,11 +10,11 @@
                         {% csrf_token %}
                     <div class="mb-3">
                         <label for="id_login" class="form-label">Login</label>
-                        <input type="text" name="login" placeholder="Username or email" autocomplete="email" required id="id_login" class="form-control" required>
+                        <input type="text" name="login" placeholder="Username or email" autocomplete="email" id="id_login" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="id_password" class="form-label">Password</label>
-                        <input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-describedby="id_password_helptext" id="id_password" class="form-control" required>
+                        <input type="password" name="password" placeholder="Password" autocomplete="current-password" id="id_password" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-primary mb-4">Sign In</button>
                     <div class="mb-3">

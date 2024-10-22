@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const deleteTrigger = document.getElementById('delete-trigger');
+    const deleteTrigger = document.getElementsByClassName('delete-trigger');
     
     if(deleteTrigger) {
         const deleteCourseModal = document.getElementById('course-delete-modal');

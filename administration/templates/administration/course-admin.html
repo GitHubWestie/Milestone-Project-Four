@@ -24,7 +24,7 @@
                         <h5 class="card-title mb-4">{{ course.title }}</h5>
                         <div class="d-flex align-items-end">
                             <a href="{% url 'edit_course' course.pk %}" class="btn btn-primary me-3">Edit</a>
-                            <button id="delete-trigger" type="button" class="btn btn-danger me-3" data-bs-toggle="modal" data-bs-target="#course-delete-modal" data-course-id="{{ course.pk }}" data-url="{% url 'delete_course' course.pk %}">Delete</button>
+                            <button type="button" class="btn btn-danger me-3 delete-trigger" data-bs-toggle="modal" data-bs-target="#course-delete-modal" data-course-id="{{ course.pk }}" data-url="{% url 'delete_course' course.pk %}">Delete</button>
                         </div>
                     </div>
                 </div>
