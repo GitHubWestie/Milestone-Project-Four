@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container h-100">
+    <div class="row justify-content-center">
+        <div class="col">
+            <h2>Oh no! 😭</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>It's not you, it's me.</h4>
+            <p>The content you're trying to access can't be reached right now. This usually happens when the database cant be reached for some reason. Please check back later. Apologies for the inconvenience.</p>
+        </div>
+        <div>
+            <small>
+                <strong>For the nerds</strong> 
+                <br>
+                {{ error }}
+            </small>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

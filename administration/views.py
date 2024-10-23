@@ -13,13 +13,17 @@ def course_admin(request):
     if not user.is_superuser and not user.is_staff:
         return redirect('dashboard')
 
-    courses = Course.objects.all()
+    try:
+        courses = Course.objects.all()
 
-    context = {
-        'courses': courses
-    }
+        context = {
+            'courses': courses
+        }
 
-    return render(request, 'administration/course-admin.html', context)
+        return render(request, 'administration/course-admin.html', context)
+    except Exception as e:
+        print({e})
+        return render(request, 'error.html', {'error': {e}})
 
 
 @login_required
