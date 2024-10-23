@@ -14,16 +14,16 @@ class CourseForm(forms.ModelForm):
             'cover_image',
             'instructor',
         ]
-        
+
 
 LessonFormset = inlineformset_factory(
     Course, Lesson,
-    fields = (
+    fields=(
         'title',
         'description',
         'video_url',
         'order',
     ),
-    extra = 1,
-    can_delete = True
+    extra=1,
+    can_delete=True
 )

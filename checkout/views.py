@@ -9,11 +9,13 @@ from django.utils import timezone
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-# Create your views here.
+
 def checkout(request):
     base_url = request.build_absolute_uri('/')
-    success_url=f"{base_url}checkout/success?session_id={{CHECKOUT_SESSION_ID}}"
-    cancel_url=f"{base_url}checkout/cancel/"
+    success_url = (
+        f"{base_url}checkout/success?session_id={{CHECKOUT_SESSION_ID}}"
+        )
+    cancel_url = f"{base_url}checkout/cancel/"
     basket = Basket(request)
 
     if request.method == 'POST':
@@ -21,14 +23,14 @@ def checkout(request):
 
         for item in basket:
             line_items.append({
-                'price_data' : {
-                    'currency' : 'gbp',
-                    'product_data' : {
-                        'name' : item['course'].title,
+                'price_data': {
+                    'currency': 'gbp',
+                    'product_data': {
+                        'name': item['course'].title,
                     },
-                    'unit_amount' : int(item['price'] * 100),
+                    'unit_amount': int(item['price'] * 100),
                 },
-                'quantity' : 1,
+                'quantity': 1,
             })
 
         checkout_session = stripe.checkout.Session.create(
@@ -42,7 +44,7 @@ def checkout(request):
         return redirect(checkout_session.url, code=303)
 
     context = {
-        'basket' : basket,
+        'basket': basket,
     }
 
     return render(request, 'checkout/checkout.html', context)
@@ -50,7 +52,7 @@ def checkout(request):
 
 def success(request):
     """
-    Check for payment confirmation in Stripe session and if it exists enrol 
+    Check for payment confirmation in Stripe session and if it exists enrol
     user in purchased course.
     If not redirect back to basket to complete checkout.
     """
@@ -72,9 +74,9 @@ def success(request):
         # Enroll user in purchased course/s
         for item in basket:
             Enrollment.objects.create(
-                user = user,
-                course = item['course'],
-                enrolled_at = timezone.now(),
+                user=user,
+                course=item['course'],
+                enrolled_at=timezone.now(),
             )
 
         basket.clear()
@@ -84,6 +86,6 @@ def success(request):
         return redirect('basket.html')
 
 
-def cancel(request): 
+def cancel(request):
 
     return render(request, 'checkout/cancel.html')

@@ -4,16 +4,6 @@ from django.shortcuts import get_object_or_404
 from .forms import CourseForm, LessonFormset
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-@login_required
-def admin(request):
-    user = request.user
-    
-    if not user.is_superuser and not user.is_staff:
-        return redirect('dashboard')
-
-    return render(request, 'administration/admin.html')
-
 
 @login_required
 def course_admin(request):
@@ -25,7 +15,7 @@ def course_admin(request):
     courses = Course.objects.all()
 
     context = {
-        'courses' : courses
+        'courses': courses
     }
 
     return render(request, 'administration/course-admin.html', context)
@@ -47,9 +37,9 @@ def add_course(request):
         course_form = CourseForm()
 
     context = {
-        'course_form' : course_form
+        'course_form': course_form
     }
-    
+
     return render(request, 'administration/add-course.html', context)
 
 
@@ -66,22 +56,22 @@ def edit_course(request, pk):
 
     if request.method == 'POST':
         course_form = CourseForm(request.POST, request.FILES, instance=course)
-        lesson_form = LessonFormset(request.POST, 
+        lesson_form = LessonFormset(request.POST,
                                     queryset=lessons, instance=course)
 
         if course_form.is_valid() and lesson_form.is_valid():
             course_form.save()
             lesson_form.save()
-            return redirect('course_admin')
+            return redirect('edit_course', pk=pk,)
 
     else:
         course_form = CourseForm(instance=course)
         lesson_form = LessonFormset(queryset=lessons, instance=course)
 
     context = {
-        'course' : course,
-        'course_form' : course_form,
-        'lesson_form' : lesson_form,
+        'course': course,
+        'course_form': course_form,
+        'lesson_form': lesson_form,
     }
 
     return render(request, 'administration/edit-course.html', context)
@@ -98,5 +88,5 @@ def delete_course(request, pk):
     if request.method == 'POST':
         course.delete()
         return redirect('course_admin')
-    
+
     return render(request, 'administration/course-admin.html')

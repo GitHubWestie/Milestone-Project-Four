@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Course, Lesson, Enrollment
 
-# Register your models here.
+
 class LessonInline(admin.TabularInline):
     model = Lesson
     extra = 1

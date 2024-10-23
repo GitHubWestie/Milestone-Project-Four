@@ -5,7 +5,7 @@ from courses.models import Course
 class Basket:
     """ Basket class for handling various functions """
 
-    # Initialise basket or create empty one if not in session 
+    # Initialise basket or create empty one if not in session
     def __init__(self, request):
         self.session = request.session
         basket = self.session.get('basket')
@@ -20,11 +20,11 @@ class Basket:
 
         if course_id not in self.basket:
             self.basket[course_id] = {
-                'course' : course_id,
-                'title' : str(course.title),
-                'description' : str(course.description),
-                'quantity' : 1,
-                'price' : str(course.price),
+                'course': course_id,
+                'title': str(course.title),
+                'description': str(course.description),
+                'quantity': 1,
+                'price': str(course.price),
                 }
         self.save()
 
@@ -36,7 +36,7 @@ class Basket:
             del self.basket[course_id]
             self.save()
 
-    # 
+    #
     def __iter__(self):
         course_ids = self.basket.keys()
         courses = Course.objects.filter(id__in=course_ids)
@@ -51,12 +51,12 @@ class Basket:
 
     # Get total price of basket items
     def basket_total(self):
-        total = 0  
+        total = 0
 
-        for item in self.basket.values():  
-            total += Decimal(item['price'])  
-        return total 
-    
+        for item in self.basket.values():
+            total += Decimal(item['price'])
+        return total
+
     # Save basket
     def save(self):
         self.session.modified = True

@@ -15,8 +15,8 @@ def dashboard(request):
     enrolled_courses = request.user.enrollments.all()
 
     context = {
-        'complete_user' : complete_user,
-        'enrolled_courses' : enrolled_courses,
+        'complete_user': complete_user,
+        'enrolled_courses': enrolled_courses,
     }
 
     return render(request, 'users/dashboard.html', context)

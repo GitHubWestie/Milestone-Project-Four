@@ -32,8 +32,10 @@ ALLOWED_HOSTS = [
     '8000-githubwesti-milestonepr-hjibg5z0llt.ws.codeinstitute-ide.net',
     'codefusion-23367f5507c1.herokuapp.com',
     ]
-    
-CSRF_TRUSTED_ORIGINS = ['https://8000-githubwesti-milestonepr-hjibg5z0llt.ws.codeinstitute-ide.net']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-githubwesti-milestonepr-hjibg5z0llt.ws.codeinstitute-ide.net'
+    ]
 
 
 # Application definition
@@ -101,14 +103,14 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email' # Can use email OR username
-ACCOUNT_EMAIL_REQUIRED = True # Email required to register
-ACCOUNT_EMAIL_VERIFICATION = 'none' # Must verify through email
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False # Must enter email twice to sign up
-ACCOUNT_USERNAME_MIN_LENGTH = 4 # Min username length is 4 characters
-LOGIN_URL = '/accounts/login/' # Specifies login url
-LOGIN_REDIRECT_URL = '/dashboard' # URL to redirect to after logging in
-LOGOUT_REDIRECT_URL = '/accounts/login/' # URL to redirect to after logging out
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -209,7 +211,7 @@ if 'USE_AWS' in os.environ:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Stripe 
+# Stripe
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 

@@ -4,14 +4,13 @@ from courses.models import Course
 from . basket import Basket
 
 
-# Create your views here.
 def view_basket(request):
     basket = Basket(request)
     total = basket.basket_total()
 
     context = {
-        'basket' : basket,
-        'total' : total,
+        'basket': basket,
+        'total': total,
     }
 
     return render(request, 'basket/basket.html', context)
