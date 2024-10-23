@@ -349,6 +349,10 @@ A Procfile must be present for Heroku to deploy correctly and all requirements p
 
 [HTML course image courtesy of Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HTML5_Badge.svg)
 
+[Django Basket Building Reference](https://medium.com/@ayoubennaoui20/building-a-shopping-cart-in-django-a-step-by-step-guide-d696439ec6e5)
+
+[Course logos from icons-icons](https://icon-icons.com/)
+
 [Image resizing courtesy of TinyPNG](https://tinypng.com/)
 
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) 

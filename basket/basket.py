@@ -36,7 +36,7 @@ class Basket:
             del self.basket[course_id]
             self.save()
 
-    #
+    # Iterate through items in basket and access the related Products.
     def __iter__(self):
         course_ids = self.basket.keys()
         courses = Course.objects.filter(id__in=course_ids)

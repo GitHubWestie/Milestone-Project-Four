@@ -5,6 +5,7 @@ from . basket import Basket
 
 
 def view_basket(request):
+    """ Get items in basket and total """
     basket = Basket(request)
     total = basket.basket_total()
 
@@ -17,6 +18,7 @@ def view_basket(request):
 
 
 def add_to_basket(request, course_id):
+    """ Add item to basket """
     basket = Basket(request)
     course = get_object_or_404(Course, id=course_id)
     basket.add(course=course)
@@ -25,6 +27,7 @@ def add_to_basket(request, course_id):
 
 
 def remove_from_basket(request, course_id):
+    """ Remove item from basket """
     basket = Basket(request)
     course = get_object_or_404(Course, id=course_id)
     basket.remove(course)

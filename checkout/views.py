@@ -11,6 +11,12 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def checkout(request):
+    """
+    Stripe checkout
+
+    Builds a base URL required for success or cancel messages.
+    Gets basket contents and builds Stripe session for checkout.
+    """
     base_url = request.build_absolute_uri('/')
     success_url = (
         f"{base_url}checkout/success?session_id={{CHECKOUT_SESSION_ID}}"

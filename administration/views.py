@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def course_admin(request):
+    """ Get course list for authenticated admin users """
     user = request.user
 
     if not user.is_superuser and not user.is_staff:
@@ -23,6 +24,7 @@ def course_admin(request):
 
 @login_required
 def add_course(request):
+    """ Allow authenticated admins to add new courses """
     user = request.user
 
     if not user.is_superuser and not user.is_staff:
@@ -45,7 +47,7 @@ def add_course(request):
 
 @login_required
 def edit_course(request, pk):
-
+    """ Allow authenticated admins to edit courses and add/edit lessons """
     user = request.user
 
     if not user.is_superuser and not user.is_staff:
@@ -79,6 +81,7 @@ def edit_course(request, pk):
 
 @login_required
 def delete_course(request, pk):
+    """ Allow authenticated admins to delete courses """
     user = request.user
 
     if not user.is_superuser and not user.is_staff:
