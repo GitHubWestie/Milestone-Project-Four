@@ -204,6 +204,65 @@ The flow chart
 
 The HTML validator was unable to assess and validate by URL for any pages that required authentication to access. In order to assess the HTML I copied the code from the dev tools in Chrome and pasted into the validator. 
 
+## Deployment and Local Development
+
+## Deployment & Local Development
+
+### Github
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+You will need to install packages found within the *requirements.txt* file and set environment variables in an *env.py* file saved to the root directory.
+
+#### **How to Fork**
+
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
+
+You can fork this repository by using the following steps:
+
+1. Log in to GitHub and locate the [CodeFusion GitHub Repository](https://github.com/GitHubWestie/milestone-project-four)
+2. At the top of the Repository (not the top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+#### **How to Clone and Setup for Local Development**
+
+There are several methods available to clone a repository but this guide will use [Visual Studio Code](https://code.visualstudio.com/).
+
+1. Go to the [CodeFusion GitHub repository](https://github.com/GitHubWestie/milestone-project-four) 
+2. Copy the url from the address bar or click on the green 'code' button and copy the url from there
+3. In VS Code select Clone Git Repository from the welcome screen or push ctrl + shift + P on your keyboard to open the pallette and type 'clone'. From the list select Git:clone and paste in the repository URL. Push enter or click the URL
+4. VS Code will prompt you to select a destination folder for the cloned repository. Once selected the repo will be cloned and VS Code will prompt again to open the cloned repository.
+5. It is advisable to setup a virtual environment before installing packages. Hit ctrl + shift + P and in the pallette type Python:Create environment. Hit enter or click and choose venv, then select your Python interpreter. As there is a requirements.txt file in the repository you may be prompted to select dependencies to install. If so check the box for requirements.txt and give VS Code a moment to set everything up. When the environment is ready VS Code will display a small message in the corner and a (.venv) should appear in your terminal.
+6. If the option to install dependencies wasnt offered then once the venv is setup go to your terminal and type:
+    * `pip install -r requirements.txt`
+
+   Wait while dependencies are installed
+7. Create env.py file in root directory and assign environment variables
+    * `import os`
+    * `os.environ['SECRET_KEY'] = 'yourdjangosecretkeygoeshere'`
+    * `os.environ['STRIPE_SECRET_KEY'] = 'yourstripesecretkeygoeshere'`
+    * `os.environ['STRIPE_PUBLISHABLE_KEY'] = 'yourstripepublishablekeygoeshere'`
+8. Before running the server initialise a database. In the terminal type:
+    * `python manage.py makemigrations`
+
+    Once that has completed, in the terminal type:
+    * `python manage.py migrate`
+
+    You should now have an empty sqlite3 database for local development
+9. Make sure DEBUG is set to True in settings.py and in the terminal run:
+    * `python manage.oy runserver`
+
+    VS Code should prompt to open a browser but if not ctrl + click the development server address in the terminal. If you encounter a warning from Django regarding allowed hosts go back to settings.py and in the ALLOWED_HOSTS list add your local IP address.
+10. The final thing to do is create an admin user. In the terminal type:
+    * `python manage.py createsuperuser`
+
+    You will be prompted for some credentials (email isnt necessary, push enter to skip and you will not be able to see the password you type in, this is normal)
+11. Run the server if it isnt already running and login with the superuser credentials. If you need to access the django admin features just add /admin to the local address in the browser address bar.
+12. In your IDE terminal type the following commands to setup your repository:
+    * `git remote add origin https://github.com/your-username/new-repo.git`
+    * `git push -u origin main`
+
+
 ## Technologies
 
 ### Languages Used
