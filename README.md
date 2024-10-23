@@ -1,5 +1,5 @@
 # **CodeFusion**
-
+![amiresponsive](/other_media/README_files/Screenshot%202024-10-23%20074142.png)
 
 ## **Strategy**
 
@@ -202,7 +202,9 @@ The flow chart
 ![HTML Validator](/other_media/validation/basket.png) ![HTML Validator](/other_media/validation/admin-create.png)
 ![HTML Validator](/other_media/validation/course-admin.png) ![HTML Validator](/other_media/validation/css.png)
 
-The HTML validator was unable to assess and validate by URL for any pages that required authentication to access. In order to assess the HTML I copied the code from the dev tools in Chrome and pasted into the validator. 
+The HTML validator was unable to assess and validate by URL for any pages that required authentication to access. In order to assess the HTML I copied the code from the dev tools in Chrome and pasted into the validator.
+
+During validation I discovered a duplicated id attribute as a consequence of generating an element with an id programmatically. The id was required for a JavaScript function to attach to so this was re-allocated to a class instead and the JavaScript updated. This then lead to another issue where the JavaScript was trying to run on every page but throwing a type error because it couldnt find the class. To solve this I moved the script into its own script file and called it only in the template where it was required.
 
 ## Deployment and Local Development
 
@@ -242,6 +244,7 @@ There are several methods available to clone a repository but this guide will us
     * `os.environ['SECRET_KEY'] = 'yourdjangosecretkeygoeshere'`
     * `os.environ['STRIPE_SECRET_KEY'] = 'yourstripesecretkeygoeshere'`
     * `os.environ['STRIPE_PUBLISHABLE_KEY'] = 'yourstripepublishablekeygoeshere'`
+
 8. Before running the server initialise a database. In the terminal type:
     * `python manage.py makemigrations`
 
@@ -261,6 +264,46 @@ There are several methods available to clone a repository but this guide will us
 12. In your IDE terminal type the following commands to setup your repository:
     * `git remote add origin https://github.com/your-username/new-repo.git`
     * `git push -u origin main`
+
+### Deployment
+This covers deploying with [Heroku](https://www.heroku.com) but steps should be similar for other hosting platforms. 
+
+Settings.py is basically ready to go but be sure to turn DEBUG to False before deploying. You will also need a postgres database and your choice of host for serving static and media files such as Amazon S3. This process assumes an S3 setup however it is worth being mindful of settings.py as even if using S3 some settings may differ such as the region Amazon picks for your bucket. Double check the settings in settings.py and verify they are suitable for your setup.
+
+Deployment steps are as follows:
+
+Before setting up in Heroku you will need your postgres url, your Amazon S3 bucket details and if you want to send emails an SMTP email. 
+
+This process connects your GitHub repository to Heroku. Alternatively you can follow the instructions on Heroku to deploy using the Heroku CLI
+
+1. Select __New__ in the top-right corner of your Heroku Dashboard, and select __Create new app__ from the dropdown menu.
+2. Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select __Create App__.
+3. From the new app __Settings__, click __Reveal Config Vars__, and set your environment variables.
+
+| Key | Value |
+| --- | --- |
+| `SECRET_KEY` | yourdjangosecretkeygoeshere |
+| `STRIPE_SECRET_KEY` | yourstripesecretkeygoeshere |
+| `STRIPE_PUBLISHABLE_KEY` | yourstripepublishablekeygoeshere |
+| `DATABASE_URL` | postgres://urlgoeshere |
+| `USE_AWS` | True |
+| `AWS_ACCESS_KEY_ID` | yourawsaccesskeygoeshere |
+| `AWS_SECRET_ACCESS_KEY` | yourawssecretaccesskeygoeshere |
+| `AWS_STORAGE_BUCKET_NAME` | awsbucketnamegoeshere |
+| `EMAIL_HOST_USER` | youremailhost@usergoeshere.com |
+| `EMAIL_HOST_PASSWORD` | emailhostpasswordgoeshere |
+| `DEFAULT_FROM_EMAIL` | defaultfromemailgoeshere |
+
+4. Back in the deploy tab in Heroku choose connect to github and connect your github account. 
+5. Type or paste the repository name into the search box and select your repository
+6. Select __Automatic Deployment__ from the Heroku app.
+7. Select the __main__ branch to deploy from and click __deploy__
+
+Heroku will now build the app. When finished click view or open app from Heroku to visit the deployed version.
+
+### __IMPORTANT__
+
+A Procfile must be present for Heroku to deploy correctly and all requirements packages must be installed. These are included in the github repo.
 
 
 ## Technologies
@@ -291,9 +334,8 @@ There are several methods available to clone a repository but this guide will us
 
 ### Testing and Validation
 - [W3C Markup Validation Service](https://validator.w3.org/)
-- 
 
-## Credits
+## Credits and References
 
 [Django Documentation](https://www.djangoproject.com/)
 
@@ -313,18 +355,23 @@ There are several methods available to clone a repository but this guide will us
 
 [StackOverflow](https://stackoverflow.com/questions/39009638/how-to-edit-django-allauth-default-templates)
 
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
-
-[Stripe](https://docs.stripe.com/checkout/quickstart)
+[Stripe Documentation](https://docs.stripe.com/checkout/quickstart)
 
 [Matt Freire - Django Stripe setup](https://youtu.be/722A27IoQnk?si=hdCXsV2F4b041ZzA)
 
-[AdamJ.eu](https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/#:~:text=Django's%20template%20system%20only%20escapes,recommend%20you%20never%20do%20it.)
+[AdamJ.eu - Working with Django and JavaScript](https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/#:~:text=Django's%20template%20system%20only%20escapes,recommend%20you%20never%20do%20it.)
 
-[Markus Spiske](https://www.pexels.com/photo/black-and-white-striped-textile-193350/)
+[Markus Spiske - Landing page Hero Image](https://www.pexels.com/photo/black-and-white-striped-textile-193350/)
 
 [Image Resizer](https://imageresizer.com/)
 
 [Scaler Topics - Riya Verma - JavaScript Reference](https://www.scaler.com/topics/javascript-hide-element/)
 
 [AmIresponsive](https://ui.dev/amiresponsive)
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+
+### Special thanks 🙏🏻
+Special thanks goes to Ronan, my [Code Institute](https://codeinstitute.net/) mentor who deserves so much more than to be a footnote in a README that most will probably never see. His help and knowledge has been invaluable throughout my experience with Code Institute 
+
+Also a huge thanks to Stephen Gray who rescued my from the bowels of despair after I had been battling an issue that even Code Institute tutor support couldnt help me with after 4 hours of trying 

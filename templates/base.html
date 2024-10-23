@@ -59,7 +59,7 @@
 						{% if user.is_authenticated %}
 							{% if user.is_admin or user.is_staff %}
 								<li class="nav-item">
-									<a class="nav-link" href="{% url 'administration' %}">Admin Panel</a>
+									<a class="nav-link" href="{% url 'course_admin' %}">Admin Panel</a>
 								</li>
 							{% endif %}
 							<li class="nav-item me-2">
