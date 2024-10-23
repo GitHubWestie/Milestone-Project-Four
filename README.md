@@ -111,6 +111,19 @@ Once checkout is completed a success message is displayed for a few seconds befo
 
 Currently, admins can access the course management section from here. From here admins have full control over CRUD functionality for all course and lesson content. The delete button on courses is defensively programmed to avoid accidental deletions.
 
+### Future Feature Implementations
+
+There are many features I didnt have time to implement that would improve the user experience. Below are a few. 
+
+- Prevent user from being able to purchase a course they are already enrolled on
+- Resume learning from the dashboard
+- Changing quotes on the basket redirect page
+- Prevent lessons being created with the same order number
+- Auto increment order number so that the user doesnt have to remember to set each one
+- Access to all courses by default for admin/staff users 
+- Various success and other feedback messages. Most things are fairly clear when they have or havent succeeded but that extra layer of feedback for the user would be nice
+- Feedback if a user tries to add the same course to the basket twice. Currently this is not possible but a message would make this clearer to the user
+
 ## Structure
 The schema for this project called for a variety of relationship types between tables. 
 
